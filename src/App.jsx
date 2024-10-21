@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';  // Correctly import BrowserRouter
+
+import axios from 'axios';
+import Login from './Components/login';
+import Dashboard from './pages/Dashboard';
+import Signup from './pages/Signup';
 function App() {
   const [users, setUsers] = useState([]);
 
@@ -16,15 +21,14 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <h1>Linktree Clone</h1>
-      <h2>Users List</h2>
-      <ul>
-        {users.map(user => (
-          <li key={user.id}>{user.username}</li>
-        ))}
-      </ul>
-    </div>
+    <Router>
+      <Routes>
+        {/* Define your routes here */}
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/signup" element={<Signup />}/>
+      </Routes>
+    </Router>
   );
 }
 
