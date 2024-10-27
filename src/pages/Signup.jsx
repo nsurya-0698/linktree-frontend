@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { Link, BrowserRouter as Router, Route, Routes } from 'react-router-dom';  // Import Link here
+
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -46,6 +48,9 @@ const SignUp = () => {
         {error && <p style={{ color: 'red' }}>{error}</p>}
         {success && <p style={{ color: 'green' }}>{success}</p>}
         <button type="submit">Create Account</button>
+        <p>
+        Need to log in again? <Link to="/">Login</Link>
+      </p>
       </form>
     </div>
   );
