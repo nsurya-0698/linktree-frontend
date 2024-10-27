@@ -10,22 +10,15 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-  
-    console.log('Logging in with:', { email, password }); // Log the email and password
-  
     try {
-        console.log('Logging in with:', { email, password });
       const response = await axios.post('http://localhost:3000/api/login', { email, password });
-      console.log('Login successful:', response.data); // Log the response data
-      localStorage.setItem('user', JSON.stringify(response.data));
+      localStorage.setItem('user', JSON.stringify(response.data)); // Store user data
       navigate('/dashboard');
-      console.log('Login successful:', response.data); // Log the response data
     } catch (error) {
-      console.error('Login error:', error.response); // Log the error response
+      console.error('Login error:', error);
       setError('Invalid email or password');
     }
-  };
-  
+  };  
 
   return (
     <div>
