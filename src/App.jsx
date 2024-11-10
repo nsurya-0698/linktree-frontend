@@ -6,6 +6,8 @@ import axios from 'axios';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Signup from './pages/Signup';
+import AllLinks from './pages/AllLinks';
+
 function App() {
   const [users, setUsers] = useState([]);
 
@@ -27,6 +29,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Signup />}/>
+        <Route path="/all-links" element={<AllLinks />} />
       </Routes>
     </Router>
   );

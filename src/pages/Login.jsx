@@ -7,18 +7,17 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
-
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:3000/api/login', { email, password });
-      localStorage.setItem('user', JSON.stringify(response.data)); // Store user data
+      localStorage.setItem('userId', response.data.id); // Store userId dynamically
       navigate('/dashboard');
     } catch (error) {
       console.error('Login error:', error);
       setError('Invalid email or password');
     }
-  };  
+  };
 
   return (
     <div>
