@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Signup from './pages/Signup';
 import AllLinks from './pages/AllLinks';
+import PublicLinks from './pages/publicLink';
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -30,6 +31,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Signup />}/>
         <Route path="/all-links" element={<AllLinks />} />
+        <Route path="/links/:uniqueLink" element={<PublicLinks />} />
       </Routes>
     </Router>
   );
